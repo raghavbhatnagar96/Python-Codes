@@ -1,0 +1,23 @@
+def f(g,n,initial):
+	acc = initial
+	for i in n:
+		acc = g(acc,i)
+	return acc
+def sumlist(n):
+	def add(x,y):
+		return x+y
+	return f(add,n,0)
+
+def greaterEven(l):
+	r = []
+	k = []
+	for i in l:
+		if(i%2==0):
+			r.append(i**2)
+		else:
+			k.append(i**2)
+	if(sumlist(r)>sumlist(k)):
+		return True
+	else:
+		return False
+print greaterEven([1,2,3,4])
